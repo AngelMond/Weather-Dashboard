@@ -4,11 +4,226 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather </title>
+    <title>Weather Dashboard </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/reset.css">
+    
 </head>
 <body>
+
+    <header>
+        <div class="jumbotron bg-dark ">
+            <h1 id="titulo" class="h1 text-cambria text-center text-light font-weight-bold">Weather Dashboard</h1>
+            <h3 id="actualTime" class="text-cambria text-white text-center text-light font-weight-bold"></h3>
+        </div>
+    </header>
+
+    <main class="d-flex flex-flow flex-wrap">
+
+        <!--Section 1 - Search for a City -->
+
+        <section class="col-lg-3">
+            <form>
+                <div class="form-group d-flex flex-row flex-wrap justify-content-center pb-3 border-bottom border-secondary ">
+                  <label for="searchCity" class="h2 text-center col-lg-12 font-weight-bold">Seach for a City</label>
+                  <input type="text" class="form-control" id="inputSearchCity" placeholder="City" >
+                  <button id="buttonSearch" type="button" class="btn btn-secondary mt-2 col-lg-6" value="search">Search</button>
+                </div>
+            </form>
+
+            <!--Main Container for Search history-->
+            <article id="searchHistory" class="col-lg-12 text-center">
+                <h4 class="h4 ">Search History</h4>
+                
+                <!--Cointainer for search history-->
+                <section id="historyContainer" class="col-lg-12 d-flex flex-row flex-wrap">
+
+                </section>
+            </article>
+            
+        </section>
+
+        <!--Section 2-->
+        <section class="col-lg-9">
+
+            <!--Big Card display today's weather info -->
+            <article id="bigCard" class="d-flex flex-row flex-wrap p-3 border border-secondary rounded">
+
+                <!--Big Card Header-->
+                <h3 id="actualCity" class="h3 col-lg-7 p-1 font-weight-bold text-right"></h3>
+                
+                <!--Display image of the weather-->
+                <img src="" id="iconCurrentDay"  alt="" class="p-1"  >
+                
+
+                <!--Temperature-->
+                <span id="containerTodayTemp" class="col-lg-12 pl-5 mb-4 mt-5 font-weight-bold">Temp : 
+                    <span id="todayTemp" class="p-1 font-weight-light"></span>
+                </span>
+
+                <!--Wind-->
+                <span id="containerTodayWind" class="col-lg-12 pl-5 mb-4 font-weight-bold">Wind : 
+                    <span id="todayWind" class="p-1 font-weight-light"></span>
+                </span>
+
+                <!--Humidity-->
+                <span id="containerTodayHumidity" class="col-lg-12 pl-5 mb-4 font-weight-bold">Humidity : 
+                    <span id="todayHumidity" class="p-1 font-weight-light"></span>
+                </span>
+
+                <!--UV Index-->
+                <span id="containerUvIndex" class="col-lg-12 pl-5 mb-4 font-weight-bold">UV Index : 
+                    <span id="todayUvIndex" class="p-2 rounded fw-light text-left font-weight-light"></span>
+                </span>
+            </article>
+
+
+            <!--Smaller Cards display forecast weather  -->
+            <article class="mt-5 d-flex flex-row flex-wrap justify-content-center">
+                <!--Forecast Header-->
+                <h4 id="futureDays" class="h4 font-weight-bold text-center mb-4 col-lg-12">5 Days Forecast</h4>
+
+                <!--Cards display weather in the next 5 days-->
+                <!--CARD 1-->
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+
+                    <!--Display Cards Date-->
+                    <div id="dateDay1" class="card-header text-center col-lg-12 mb-3 font-weight-bold">Cards Date</div>
+
+                    <!--Display image of the weather-->
+                    <img id="iconDay1" src="" alt="" class="col-lg-6">
+
+                    <!--Temperature-->
+                    <span class=" col-lg-12 p-2 mt-2 font-weight-bold">Temp :
+                         <span id="tempDay1" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Wind-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Wind :
+                        <span id="windDay1"  class="font-weight-light"></span>
+                    </span>
+
+                    <!--Humidity-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Humidity :
+                        <span id="humidityDay1"  class="font-weight-light"></span>
+                    </span>
+                </div>
+
+                <!--CARD 2-->
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+
+                    <!--Display Cards Date-->
+                    <div id="dateDay2" class="card-header text-center col-lg-12 mb-3 font-weight-bold">Cards Date</div>
+
+                    <!--Display image of the weather-->
+                    <img id="iconDay2" src="" alt="" class="col-lg-6">
+
+                    <!--Temperature-->
+                    <span class=" col-lg-12 p-2 mt-2 font-weight-bold">Temp :
+                         <span id="tempDay2" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Wind-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Wind :
+                        <span id="windDay2" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Humidity-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Humidity :
+                        <span id="humidityDay2" class="font-weight-light"></span>
+                    </span>
+                </div>
+
+                <!--CARD 3-->
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+
+                    <!--Display Cards Date-->
+                    <div id="dateDay3" class="card-header text-center col-lg-12 mb-3 font-weight-bold">Cards Date</div>
+
+                    <!--Display image of the weather-->
+                    <img id="iconDay3" src="" alt="" class="col-lg-6">
+
+                    <!--Temperature-->
+                    <span class=" col-lg-12 p-2 mt-2 font-weight-bold">Temp :
+                         <span id="tempDay3" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Wind-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Wind :
+                        <span id="windDay3" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Humidity-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Humidity :
+                        <span id="humidityDay3" class="font-weight-light"></span>
+                    </span>
+                </div>
+
+                <!--CARD 4-->
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+
+                    <!--Display Cards Date-->
+                    <div id="dateDay4" class="card-header text-center col-lg-12 mb-3 font-weight-bold">Cards Date</div>
+
+                    <!--Display image of the weather-->
+                    <img id="iconDay4" src="" alt="" class="col-lg-6">
+
+                    <!--Temperature-->
+                    <span class=" col-lg-12 p-2 mt-2 font-weight-bold">Temp :
+                         <span id="tempDay4" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Wind-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Wind :
+                        <span id="windDay4" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Humidity-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Humidity :
+                        <span id="humidityDay4" class="font-weight-light"></span>
+                    </span>
+                </div>
+
+                <!--CARD 5-->
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+
+                    <!--Display Cards Date-->
+                    <div id="dateDay5" class="card-header text-center col-lg-12 mb-3 font-weight-bold">Cards Date</div>
+
+                    <!--Display image of the weather-->
+                    <img id="iconDay5" src="" alt="" class="col-lg-6">
+
+                    <!--Temperature-->
+                    <span class=" col-lg-12 p-2 mt-2 font-weight-bold">Temp :
+                         <span id="tempDay5" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Wind-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Wind :
+                        <span id="windDay5" class="font-weight-light"></span>
+                    </span>
+
+                    <!--Humidity-->
+                    <span class="col-lg-12 p-2 mt-2 font-weight-bold">Humidity :
+                        <span id="humidityDay5" class="font-weight-light"></span>
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
