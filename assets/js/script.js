@@ -211,14 +211,12 @@ function searchCity(valueInputUser) {
             iconCurrentDay.style.height = "50px";
 
 
-            //Icons for forecast
-            // weather icon for the current weather
+            //Icons for forecast weather
             firstDayIcon = data.daily[0].weather[0].icon;
             let iconUrlDay1 = "http://openweathermap.org/img/wn/"+firstDayIcon+".png";
             iconDay1.src = iconUrlDay1;
             iconDay1.style.width = "50px";
             iconDay1.style.height = "50px";
-
 
             secondDayIcon = data.daily[1].weather[0].icon;
             let iconUrlDay2 = "http://openweathermap.org/img/wn/"+firstDayIcon+".png";
@@ -232,7 +230,6 @@ function searchCity(valueInputUser) {
             iconDay3.style.width = "50px";
             iconDay3.style.height = "50px";
 
-            
             fourthDayIcon = data.daily[3].weather[0].icon;
             let iconUrlDay4 = "http://openweathermap.org/img/wn/"+firstDayIcon+".png";
             iconDay4.src = iconUrlDay4;
@@ -244,6 +241,7 @@ function searchCity(valueInputUser) {
             iconDay5.src = iconUrlDay5;
             iconDay5.style.width = "50px";
             iconDay5.style.height = "50px";
+
 
              //Weather forecast
              //First Day
@@ -311,13 +309,38 @@ function searchCity(valueInputUser) {
              humidityDay5.textContent = "";
              humidityDay5.append(fifthDayHuminity + " %")
 
-            
         })
         //finish second fetch
     })
     //finish first fetch
 }
 //finish search City function
+
+
+//Tags to append the forecast date's
+let dateDay1 = document.querySelector('#dateDay1');
+let dateDay2 = document.querySelector('#dateDay2');
+let dateDay3 = document.querySelector('#dateDay3');
+let dateDay4 = document.querySelector('#dateDay4');
+let dateDay5 = document.querySelector('#dateDay5');
+
+//Function appending the date for each card of the forecast weather
+function forecasteDate(){
+    dateDay1.textContent = "";
+   dateDay1.append(moment().add(1, 'days').format('dddd'));
+
+   dateDay2.textContent = "";
+   dateDay2.append(moment().add(2, 'days').format('dddd'));
+
+   dateDay3.textContent = "";
+   dateDay3.append(moment().add(3, 'days').format('dddd'));
+
+   dateDay4.textContent = "";
+   dateDay4.append(moment().add(4, 'days').format('dddd'));
+
+   dateDay5.textContent = "";
+   dateDay5.append(moment().add(5, 'days').format('dddd'));
+}
 
 
 //Array recives the input from the user and creates an array
@@ -336,18 +359,19 @@ function setStorageUser() {                         //Covert my array into a str
 
 
 function createSearchHistoryFromLS(){
-    //Get the string of values from local storage 
+    //Get the string from local storage 
     let localStorageValue = localStorage.getItem('Cities');
 
-    //convert the string from LS into an array again
+    //convert the string into an array again
     let localStorageObject = JSON.parse(localStorageValue);
     
     console.log(localStorageObject);
 
-    //localStorageObject == null, null es como decir false
+    //localStorageObject == null, this is when you run for the first time the app the LS is empty so it will show an error, this is to avoid that
     if(!localStorageObject){
         return
     }
+    //Create search history when refresh
    localStorageObject.forEach((city)=> {
     let divElement = document.createElement('div');
     divElement.append(city);
@@ -358,7 +382,7 @@ function createSearchHistoryFromLS(){
 
 
 
-//Function to create the search history
+//Function to create the search history whe you click on search
 function searchHistory(){
     let divElement = document.createElement('div');
     let getUserInput = inputSearchCity.value;
@@ -367,20 +391,20 @@ function searchHistory(){
     historyContainer.append(divElement);
 }
 
+//Event to hear the click on the search history buttons
 document.addEventListener('click', function(event) {
-    var node = event.target;
+    var cityButton = event.target;
     var inside = false;
-    while (node) {
-        if (node.classList.contains('historyButton')) {
+    while (cityButton) {
+        if (cityButton.classList.contains('historyButton')) {
             inside = true;
             break;
         }
-        node = node.parentElement;
+        cityButton = cityButton.parentElement;
     }
-
    if (inside) {
-    searchCity(node.innerHTML);
-       // click was outside
+       //Call my function and argument passed from the city button text
+    searchCity(cityButton.innerHTML);
    } 
 });
 
@@ -389,13 +413,14 @@ document.addEventListener('click', function(event) {
 buttonSearch.addEventListener('click', (event)=>{
     event.preventDefault();
     if(inputSearchCity.value == 0){
-
-    } else{
+        return
+    }  else{
     LocalStorageArray();
     setStorageUser();
     searchHistory();
     searchCity(inputSearchCity.value);
     clearInput();
+    forecasteDate();
     }
 
 })
