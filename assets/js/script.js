@@ -313,6 +313,7 @@ function searchCity(valueInputUser) {
         //finish second fetch
     })
     //finish first fetch
+    forecasteDate();
 }
 //finish search City function
 
@@ -420,7 +421,6 @@ buttonSearch.addEventListener('click', (event)=>{
     searchHistory();
     searchCity(inputSearchCity.value);
     clearInput();
-    forecasteDate();
     }
 
 })

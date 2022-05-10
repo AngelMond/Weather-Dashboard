@@ -19,21 +19,21 @@
         </div>
     </header>
 
-    <main class="d-flex flex-flow flex-wrap">
+    <main class="d-flex flex-flow flex-wrap mt-6">
 
         <!--Section 1 - Search for a City -->
 
         <section class="col-lg-3">
-            <form>
-                <div class="form-group d-flex flex-row flex-wrap justify-content-center pb-3 border-bottom border-secondary ">
-                  <label for="searchCity" class="h2 text-center col-lg-12 font-weight-bold">Seach for a City</label>
-                  <input type="text" class="form-control" id="inputSearchCity" placeholder="City" >
-                  <button id="buttonSearch" type="button" class="btn btn-secondary mt-2 col-lg-6" value="search">Search</button>
-                </div>
-            </form>
+            
+            <div class="form-group d-flex flex-row flex-wrap justify-content-center pb-3 border-bottom border-secondary xs:mt-4">
+                <label for="searchCity" class="h2 text-center col-lg-12 font-weight-bold">Seach for a City</label>
+                <input type="text" class="form-control" id="inputSearchCity" placeholder="City" >
+                <button id="buttonSearch" type="button" class="btn btn-secondary mt-2 col-lg-6" value="search">Search</button>
+            </div>
+            
 
             <!--Main Container for Search history-->
-            <article id="searchHistory" class="col-lg-12 text-center">
+            <article id="searchHistory" class="col-lg-12 text-center mt-5">
                 <h4 class="h4 ">Search History</h4>
                 
                 <!--Cointainer for search history-->
@@ -45,13 +45,13 @@
         </section>
 
         <!--Section 2-->
-        <section class="col-lg-9">
+        <section class="col-lg-9 mt-5">
 
             <!--Big Card display today's weather info -->
             <article id="bigCard" class="d-flex flex-row flex-wrap p-3 border border-secondary rounded">
 
                 <!--Big Card Header-->
-                <h3 id="actualCity" class="h3 col-lg-7 p-1 font-weight-bold text-right"></h3>
+                <h3 id="actualCity" class="h3 col-lg-6 col-sm-8  col-md-7 p-1 font-weight-bold text-right"></h3>
                 
                 <!--Display image of the weather-->
                 <img src="" id="iconCurrentDay"  alt="" class="p-1"  >
@@ -82,11 +82,12 @@
             <!--Smaller Cards display forecast weather  -->
             <article class="mt-5 d-flex flex-row flex-wrap justify-content-center">
                 <!--Forecast Header-->
-                <h4 id="futureDays" class="h4 font-weight-bold text-center mb-4 col-lg-12">5 Days Forecast</h4>
+                <h4 id="futureDays" class="h4 font-weight-bold text-center mb-4 col-lg-12">5 Day Forecast</h4>
 
                 <!--Cards display weather in the next 5 days-->
+
                 <!--CARD 1-->
-                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2 mt-3" style="max-width: 18rem;">
 
                     <!--Display Cards Date-->
                     <div id="dateDay1" class="card-header text-center col-lg-12 mb-3 font-weight-bold"></div>
@@ -111,7 +112,7 @@
                 </div>
 
                 <!--CARD 2-->
-                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2 mt-3" style="max-width: 18rem;">
 
                     <!--Display Cards Date-->
                     <div id="dateDay2" class="card-header text-center col-lg-12 mb-3 font-weight-bold"></div>
@@ -136,7 +137,7 @@
                 </div>
 
                 <!--CARD 3-->
-                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2 mt-3" style="max-width: 18rem;">
 
                     <!--Display Cards Date-->
                     <div id="dateDay3" class="card-header text-center col-lg-12 mb-3 font-weight-bold"></div>
@@ -161,7 +162,7 @@
                 </div>
 
                 <!--CARD 4-->
-                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2 mt-3" style="max-width: 18rem;">
 
                     <!--Display Cards Date-->
                     <div id="dateDay4" class="card-header text-center col-lg-12 mb-3 font-weight-bold"></div>
@@ -186,7 +187,7 @@
                 </div>
 
                 <!--CARD 5-->
-                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2" style="max-width: 18rem;">
+                <div class="card d-flex flex-row flex-wrap justify-content-center text-white bg-primary m-1 p-2 col-lg-2 mt-3" style="max-width: 18rem;">
 
                     <!--Display Cards Date-->
                     <div id="dateDay5" class="card-header text-center col-lg-12 mb-3 font-weight-bold"></div>

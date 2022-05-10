@@ -1,0 +1,9 @@
+@media (max-width:575px){
+    #actualCity{
+        text-align: center!important;
+    }
+
+    #iconCurrentDay{
+        margin: 0px auto;
+    }
+}
