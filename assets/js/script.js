@@ -140,7 +140,7 @@ function searchCity(valueInputUser) {
     .then(data => {
         arrayData = data;
         
-        console.log(arrayData)
+        // console.log(arrayData)
         latitude = data.coord.lat;
         longitude = data.coord.lon;
 
@@ -157,7 +157,7 @@ function searchCity(valueInputUser) {
         .then(data => data.json())
         .then(data => {
             
-            console.log(data)
+            // console.log(data)
 
             //My 4 weather stats for the current day
             todaysTemp = data.current.temp + " °C";
@@ -366,7 +366,6 @@ function createSearchHistoryFromLS(){
     //convert the string into an array again
     let localStorageObject = JSON.parse(localStorageValue);
     
-    console.log(localStorageObject);
 
     //localStorageObject == null, this is when you run for the first time the app the LS is empty so it will show an error, this is to avoid that
     if(!localStorageObject){
