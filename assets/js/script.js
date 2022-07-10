@@ -353,8 +353,8 @@ function LocalStorageArray(){
     searchLocalStorageArray.push(valueInputUser);
 }
 
-//Seting local storage
-function setStorageUser() {                         //Covert my array into a string
+//Setting local storage
+function setStorageUser() {                         //Convert my array into a string
     localStorage.setItem('Cities', JSON.stringify(searchLocalStorageArray));
 }
 
@@ -409,7 +409,7 @@ document.addEventListener('click', function(event) {
 });
 
 
-//Click event for my button search
+//Click event for my  search button
 buttonSearch.addEventListener('click', (event)=>{
     event.preventDefault();
     if(inputSearchCity.value == 0){
